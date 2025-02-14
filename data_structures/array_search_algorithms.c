@@ -10,6 +10,16 @@ Input: {3, 4, -1, 1}
 Output: 2
 You should aim for a time complexity of O(n).
 */
+int FindMissingPosInteger(int arr[], int size)
+{
+    int missingInt;
+    for (int i = 0; i < size; i++)
+    {
+        //In-place Cyclic Sort
+    }
+}
+
+
 
 /*
 5. Two-Sum Search:
