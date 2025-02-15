@@ -15,7 +15,15 @@ int FindMissingPosInteger(int arr[], int size)
     int missingInt;
     for (int i = 0; i < size; i++)
     {
-        //In-place Cyclic Sort
+        for (int i = 0; i < size; i++)
+        {
+            //In-place Cyclic Sort.
+            while ( (arr[i] != (i - 1)) || !(arr[i] < 0) )
+            {
+                int temp;
+                int map = arr[arr[i]-1];
+            }
+        }
     }
 }
 
