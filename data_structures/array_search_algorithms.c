@@ -12,11 +12,11 @@ You should aim for a time complexity of O(n).
 */
 int FindMissingPosInteger(int arr[], int size)
 {
-    int missingInt;
+    int missingInt = -1;
     for (int i = 0; i < size; i++)
     {
         //In-place Cyclic Sort.
-        while ( (arr[i] != (i + 1)) || !(arr[i] < 0) )
+        while ( (arr[i] != (i + 1)) && !(arr[i] < 0) )
         {
             int temp;
             int map = (arr[i] - 1);
@@ -25,8 +25,9 @@ int FindMissingPosInteger(int arr[], int size)
             arr[map] = arr[i];
             arr[i] = temp;
         }
-        printf("%d", arr[i]);
+        printf("%d ", arr[i]);
     }
+    return missingInt;
 }
 
 
