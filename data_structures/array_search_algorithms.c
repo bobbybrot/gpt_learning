@@ -15,15 +15,17 @@ int FindMissingPosInteger(int arr[], int size)
     int missingInt;
     for (int i = 0; i < size; i++)
     {
-        for (int i = 0; i < size; i++)
+        //In-place Cyclic Sort.
+        while ( (arr[i] != (i + 1)) || !(arr[i] < 0) )
         {
-            //In-place Cyclic Sort.
-            while ( (arr[i] != (i - 1)) || !(arr[i] < 0) )
-            {
-                int temp;
-                int map = arr[arr[i]-1];
-            }
+            int temp;
+            int map = (arr[i] - 1);
+            temp = arr[map];
+            
+            arr[map] = arr[i];
+            arr[i] = temp;
         }
+        printf("%d", arr[i]);
     }
 }
 
