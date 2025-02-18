@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdbool.h>
 
 /*
@@ -25,7 +24,6 @@ int FindMissingPosInteger(int arr[], int size)
             arr[map] = arr[i];
             arr[i] = temp;
         }
-        printf("%d ", arr[i]);
     }
     return missingInt;
 }
