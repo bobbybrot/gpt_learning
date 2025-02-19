@@ -1,5 +1,5 @@
-#include "data_structures/array_search_algorithms.c"
 #include <stdio.h>
+#include "data_structures/array_search_algorithms.c"
 
 int main(void)
 {
