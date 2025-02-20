@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int arr [] = {1,2,0};
+    int arr [] = {3,4,-1,1};
     int size = (sizeof(arr) / sizeof(int));
 
     printf("Missing Integer = %d\n",FindMissingPosInteger(arr, size));

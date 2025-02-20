@@ -12,42 +12,36 @@ You should aim for a time complexity of O(n).
 int FindMissingPosInteger(int arr[], int size)
 {
     int missingInt = -1;
+
+    //Part 1: Sort array
     for (int i = 0; i < size; i++)
     {
-        while ( 1 )
+        //Only perform a in place cyclic sort if:
+        //1. The value in the current index is not an integer
+        //2. The current value is not already in the designated map position
+        //3. The current value in current index is not the same as value at mapped value.
+        while ( (!(arr[i] < 0)) && (arr[i] != (i + 1)) && (arr[i] != arr[arr[i]]))
         {
-            //Ignore negative numbers.
-            if (!(arr[i] < 0))
-            {
-                if(arr[i] != (i + 1))
-                {
-                    //In-place Cyclic Sort.
-                    int temp;
-                    int map = arr[i];
-                    temp = arr[map];
-
-                    arr[map] = arr[i];
-                    arr[i] = temp;
-                }
-                else
-                {
-                    //The number has been sorted, nothing to do here
-                    break;
-                }
-            }
-            else
-            {
-                //Negative number encountered, nothing more to do here!
-                break;
-            }
+            //In-place Cyclic Sort.
+            int temp;
+            int map = arr[i];
+            temp = arr[map];
+            
+            arr[map] = arr[i];
+            arr[i] = temp;
         }
+    }
 
+    //Part 2: Look for missing integer
+    for (int i = 0; i < size; i++)
+    {
         //Update mising number value if 'i' is not -1
         if (arr[i] != (i + 1))
         {
             missingInt = (i + 1);
         }
     }
+
     return missingInt;
 }
 
