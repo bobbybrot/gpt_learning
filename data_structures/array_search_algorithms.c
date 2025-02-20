@@ -14,7 +14,6 @@ int FindMissingPosInteger(int arr[], int size)
     int missingInt = -1;
     for (int i = 0; i < size; i++)
     {
-        //In-place Cyclic Sort.
         while ( 1 )
         {
             //Ignore negative numbers.
@@ -22,8 +21,9 @@ int FindMissingPosInteger(int arr[], int size)
             {
                 if(arr[i] != (i + 1))
                 {
+                    //In-place Cyclic Sort.
                     int temp;
-                    int map = (arr[i] - 1);
+                    int map = arr[i];
                     temp = arr[map];
 
                     arr[map] = arr[i];
@@ -31,6 +31,7 @@ int FindMissingPosInteger(int arr[], int size)
                 }
                 else
                 {
+                    //The number has been sorted, nothing to do here
                     break;
                 }
             }
@@ -39,6 +40,12 @@ int FindMissingPosInteger(int arr[], int size)
                 //Negative number encountered, nothing more to do here!
                 break;
             }
+        }
+
+        //Update mising number value if 'i' is not -1
+        if (arr[i] != (i + 1))
+        {
+            missingInt = (i + 1);
         }
     }
     return missingInt;
