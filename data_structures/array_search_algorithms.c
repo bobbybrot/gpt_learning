@@ -8,6 +8,11 @@ For example:
 Input: {3, 4, -1, 1}
 Output: 2
 You should aim for a time complexity of O(n).
+
+Additional Unit Tests:
+    int arr [] = {3,4,-1,1};  //TEST 1 = PASS
+    int arr[] = {1,2,0};      //TEST 2 = PASS
+    int arr[] = {7,8,9,11,12}; //TEST 3 = PASS
 */
 int FindMissingPosInteger(int arr[], int size)
 {
@@ -55,3 +60,33 @@ Example:
 Input: Array = {2, 7, 11, 15}, Target = 9.
 Output: [0, 1].
 */
+typedef struct 
+{
+    /* data */
+    int indiceOne;
+    int indicesTwo;
+} indices;
+
+indices TwoSumSearch(int arr[], int size, int target)
+{
+    indices data = {-1,-1};
+    //Thoughts: It is possible by adding the same index twice, you could match the target,
+    //          so I think it's reasonable to have both outer and inner loop look at the same element.
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i; j < size; j++)
+        {
+            if ((arr[i] + arr[j]) == target)
+            {
+                data.indiceOne = i;
+                data.indicesTwo = j;
+
+                //Thoughts: Break keyword only escapes the inner loop, not the outer one.
+                //          Thus, set i to size then use break keyword, that way both loops will escape cleanly.
+                i = size;
+                break;
+            }
+        }
+    }
+    return data;
+}

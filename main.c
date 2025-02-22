@@ -3,11 +3,10 @@
 
 int main(void)
 {
-    //int arr [] = {3,4,-1,1};  //TEST 1 = PASS
-    //int arr[] = {1,2,0};      //TEST 2 = PASS
-    int arr[] = {7,8,9,11,12}; //TEST 3 = PASS
-    int size = (sizeof(arr) / sizeof(int));
+    int arr[] = {1, 3, 5, 7, 9};
+    int target = 8;
+    indices data = TwoSumSearch(arr, (sizeof(arr)/4), target);
 
-    printf("Missing Integer = %d\n",FindMissingPosInteger(arr, size));
+    printf("[%d, %d]", data.indiceOne, data.indicesTwo);
     return 0;
 }
