@@ -12,9 +12,27 @@ Expected Output Format:
     2.Array after partitioning: [ ..., ..., ..., pivot, ..., ...]
 ✅ Use Quick Sort for this exercise.
 */
+void SwapHelper(int *arrOne, int *arrTwo)
+{
+    int temp = *arrOne;
+    *arrOne = *arrTwo;
+    *arrTwo = temp;
+}
+
 int QuickSortPartition(int arr[], int low, int high)
 {
-    
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++)
+    {
+        if (arr[j] < pivot)
+        {
+            i++;
+            //Swap elements
+            SwapHelper((arr+i), (arr+j));
+        }
+    }
 }
 
 void QuickSort(int arr[], int low, int high)
