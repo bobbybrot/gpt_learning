@@ -5,5 +5,7 @@
 int main(void)
 {
     //Add code here!
+    int arr[] = {45, 12, 89, 33, 77, 2, 18};
+    QuickSort(arr, 0, (sizeof(arr) / sizeof(int)));
     return 0;
 }
