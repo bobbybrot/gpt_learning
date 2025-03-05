@@ -33,6 +33,8 @@ int QuickSortPartition(int arr[], int low, int high)
             SwapHelper((arr+i), (arr+j));
         }
     }
+    SwapHelper((arr+i+1), &arr[high]);
+    return i+1; //Return index for next iteration to start from.
 }
 
 void QuickSort(int arr[], int low, int high)
@@ -41,7 +43,7 @@ void QuickSort(int arr[], int low, int high)
     {
         int pivotIndex = QuickSortPartition(arr, low, high);
         QuickSort(arr, low, pivotIndex - 1);
-        Quicksort(arr, pivotIndex + 1, high);
+        QuickSort(arr, pivotIndex + 1, high);
     }
 }
 
