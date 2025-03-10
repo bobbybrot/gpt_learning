@@ -12,6 +12,7 @@ Expected Output Format:
     2.Array after partitioning: [ ..., ..., ..., pivot, ..., ...]
 ✅ Use Quick Sort for this exercise.
 */
+#if 0
 void SwapHelper(int *arrOne, int *arrTwo)
 {
     int temp = *arrOne;
@@ -46,7 +47,7 @@ void QuickSort(int arr[], int low, int high)
         QuickSort(arr, pivotIndex + 1, high);
     }
 }
-
+#endif
 
 /*
 Problem:
@@ -60,7 +61,14 @@ Expected Output: A merged array {4, 8, 10, 15, 23, 30}
 
 ✅ Use Merge Sort for this exercise.
 */
+#if 1
+//
+int* MergeSort(int arr[], int lefthalf[], int leftsize, int righthalf[], int rightsize)
+{
+    
+}
 
+#endif
 
 /*
 Problem:

@@ -5,7 +5,11 @@
 int main(void)
 {
     //Add code here!
-    int arr[] = {45, 12, 89, 33, 77, 2, 18};
-    QuickSort(arr, 0, (sizeof(arr) / sizeof(int)) - 1);
+    int leftHalf[] = {4, 10, 23};
+    int rightHalf[] = {8, 15, 30};
+    int arr[6] = {0}; //Array holding final results
+
+    MergeSort(arr, leftHalf, 3, rightHalf, 3);
+
     return 0;
 }
