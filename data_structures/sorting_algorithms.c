@@ -62,12 +62,15 @@ Expected Output: A merged array {4, 8, 10, 15, 23, 30}
 ✅ Use Merge Sort for this exercise.
 */
 #if 1
-//
-int* MergeSort(int arr[], int lefthalf[], int leftsize, int righthalf[], int rightsize)
+void MergeSort(int arr[], int left, int right)
 {
-    
+    if (left < right)
+    {
+        int mid = (left + right) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid, right);
+    }
 }
-
 #endif
 
 /*
