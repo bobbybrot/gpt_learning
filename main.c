@@ -9,7 +9,7 @@ int main(void)
     int rightHalf[] = {8, 15, 30};
     int arr[6] = {0}; //Array holding final results
 
-    MergeSort(arr, leftHalf, 3, rightHalf, 3);
+    
 
     return 0;
 }
