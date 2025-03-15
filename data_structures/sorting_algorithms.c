@@ -80,6 +80,33 @@ void Merge(int *arr, int left, int mid, int right)
         rtemp[i] = arr[(mid + i) + 1];
     }
 
+    //Merge aray in order
+    int lindex = 0; //Left Index
+    int rindex = 0; //Right Index
+    int arrindex = left;
+    while ((lindex < LEFT_SIZE) && (rindex < RIGHT_SIZE))
+    {
+        if (ltemp[lindex] <= rtemp[rindex])
+        {
+            arr[arrindex] = ltemp[lindex];
+            ++lindex;
+        }
+        else
+        {
+            arr[arrindex] = rtemp[rindex];
+            ++rindex;
+        }
+    }
+
+    //Copy remaining elements
+    while(lindex < LEFT_SIZE)
+    {
+        arr[arrindex++] = ltemp[lindex++];
+    }
+    while (rindex < RIGHT_SIZE)
+    {
+        arr[arrindex++] = rtemp[++rindex];
+    }
 }
 
 void MergeSort(int *arr, int left, int right)
