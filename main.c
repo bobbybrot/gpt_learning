@@ -5,11 +5,10 @@
 int main(void)
 {
     //Add code here!
-    int leftHalf[] = {4, 10, 23};
-    int rightHalf[] = {8, 15, 30};
-    int arr[6] = {0}; //Array holding final results
-
+    int arr[] = {4, 10, 23, 8, 15, 30};
     
+    //Sort the array
+    MergeSort(arr, 0, (sizeof(arr) / sizeof(int)));
 
     return 0;
 }
