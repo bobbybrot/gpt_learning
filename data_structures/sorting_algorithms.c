@@ -12,7 +12,7 @@ Expected Output Format:
     2.Array after partitioning: [ ..., ..., ..., pivot, ..., ...]
 ✅ Use Quick Sort for this exercise.
 */
-#ifdef 0
+#if 0
 void SwapHelper(int *arrOne, int *arrTwo)
 {
     int temp = *arrOne;
@@ -61,10 +61,39 @@ Expected Output: A merged array {4, 8, 10, 15, 23, 30}
 
 ✅ Use Merge Sort for this exercise.
 */
+#if 1
+void Merge(int *arr, int left, int mid, int right)
+{
+    //Create temporary arrays
+    const int LEFT_SIZE = (mid - left)+1;
+    const int RIGHT_SIZE = (right - mid);
+    int ltemp[LEFT_SIZE];
+    int rtemp[RIGHT_SIZE];
+
+    //Copy data into respective areas.
+    for (int i = 0; i < LEFT_SIZE; i++)
+    {
+        ltemp[i] = arr[left + i];
+    }
+    for (int i = 0; i < RIGHT_SIZE; i++)
+    {
+        rtemp[i] = arr[(mid + i) + 1];
+    }
+
+}
+
 void MergeSort(int *arr, int left, int right)
 {
-    
+    if (left < right)
+    {
+        int mid = left + (right - left) / 2;
+
+        MergeSort(arr, left, mid); //Split left
+        MergeSort(arr, mid + 1, right); //Split right
+        Merge(arr, left, mid, right);
+    }
 }
+#endif
 
 /*
 Problem:
