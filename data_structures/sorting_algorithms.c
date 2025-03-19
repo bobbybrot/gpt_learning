@@ -64,49 +64,16 @@ Expected Output: A merged array {4, 8, 10, 15, 23, 30}
 #if 1
 void Merge(int *arr, int left, int mid, int right)
 {
-    //Create temporary arrays
-    const int LEFT_SIZE = (mid - left)+1;
-    const int RIGHT_SIZE = (right - mid);
-    int ltemp[LEFT_SIZE];
-    int rtemp[RIGHT_SIZE];
+    //STEP 1: Setup Temporary arrays
+    const int L1 = mid - left+1; //Left side will also cover var at midpoint index
+    const int R1 = right - mid;
 
-    //Copy data into respective areas.
-    for (int i = 0; i < LEFT_SIZE; i++)
-    {
-        ltemp[i] = arr[left + i];
-    }
-    for (int i = 0; i < RIGHT_SIZE; i++)
-    {
-        rtemp[i] = arr[(mid + i) + 1];
-    }
+    //STEP 2: Create and copy original array into respective elements
 
-    //Merge aray in order
-    int lindex = 0; //Left Index
-    int rindex = 0; //Right Index
-    int arrindex = left;
-    while ((lindex < LEFT_SIZE) && (rindex < RIGHT_SIZE))
-    {
-        if (ltemp[lindex] <= rtemp[rindex])
-        {
-            arr[arrindex] = ltemp[lindex];
-            ++lindex;
-        }
-        else
-        {
-            arr[arrindex] = rtemp[rindex];
-            ++rindex;
-        }
-    }
+    //STEP 3: ...
 
-    //Copy remaining elements
-    while(lindex < LEFT_SIZE)
-    {
-        arr[arrindex++] = ltemp[lindex++];
-    }
-    while (rindex < RIGHT_SIZE)
-    {
-        arr[arrindex++] = rtemp[++rindex];
-    }
+    //STEP 4: ...
+
 }
 
 void MergeSort(int *arr, int left, int right)
