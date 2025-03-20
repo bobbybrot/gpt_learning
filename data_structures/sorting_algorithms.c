@@ -65,15 +65,51 @@ Expected Output: A merged array {4, 8, 10, 15, 23, 30}
 void Merge(int *arr, int left, int mid, int right)
 {
     //STEP 1: Setup Temporary arrays
-    const int L1 = mid - left+1; //Left side will also cover var at midpoint index
+    const int L1 = mid - left+1; //Left side will also cover val at midpoint index
     const int R1 = right - mid;
 
     //STEP 2: Create and copy original array into respective elements
+    int L[L1];
+    int R[R1];
+    
+    for (int i = 0; i < L1; i++)
+    {
+        L[i] = arr[left+i]; //This will cover midpoint
+    }
 
-    //STEP 3: ...
+    for (int i = 0; i < R1; i++)
+    {
+        R[i] = arr[right + i + 1];  //This will not cover midpoint, hence increment by 1.
+    }
 
-    //STEP 4: ...
+    //STEP 3: Merge into original array
+    int i = 0; //L[] index
+    int j = 0; //R[] index
+    int k = left; //arr[] index
+    int lowestindex = (L1 <= R1) ? L1 : R1;
 
+    while (k < lowestindex)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k++] = L[i++];
+        }
+        else
+        {
+            arr[k++] = L[j++];
+        }
+    }
+
+    //STEP 4: Copy remaining elements
+    while (i < L1)
+    {
+        arr[k++] = L[i++];
+    }
+
+    while (j < R1)
+    {
+        arr[k++] = R[j++];
+    }
 }
 
 void MergeSort(int *arr, int left, int right)
