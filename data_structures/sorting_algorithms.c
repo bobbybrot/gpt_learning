@@ -86,9 +86,8 @@ void Merge(int *arr, int left, int mid, int right)
     int i = 0; //L[] index
     int j = 0; //R[] index
     int k = left; //arr[] index
-    int lowestindex = (L1 <= R1) ? L1 : R1;
 
-    while (k < lowestindex)
+    while ((i < L1) && (j < R1))
     {
         if (L[i] <= R[j])
         {
