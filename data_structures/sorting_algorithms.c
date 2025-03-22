@@ -65,7 +65,7 @@ Expected Output: A merged array {4, 8, 10, 15, 23, 30}
 void Merge(int *arr, int left, int mid, int right)
 {
     //STEP 1: Setup Temporary arrays
-    const int L1 = mid - left+1; //Left side will also cover val at midpoint index
+    const int L1 = mid - left+1;
     const int R1 = right - mid;
 
     //STEP 2: Create and copy original array into respective elements
@@ -74,12 +74,12 @@ void Merge(int *arr, int left, int mid, int right)
     
     for (int i = 0; i < L1; i++)
     {
-        L[i] = arr[left+i]; //This will cover midpoint
+        L[i] = arr[left+i];
     }
 
     for (int i = 0; i < R1; i++)
     {
-        R[i] = arr[right + i + 1];  //This will not cover midpoint, hence increment by 1.
+        R[i] = arr[mid + i + 1]; 
     }
 
     //STEP 3: Merge into original array
@@ -96,7 +96,7 @@ void Merge(int *arr, int left, int mid, int right)
         }
         else
         {
-            arr[k++] = L[j++];
+            arr[k++] = R[j++];
         }
     }
 
